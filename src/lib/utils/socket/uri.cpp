@@ -124,6 +124,8 @@ URI URI::fromIPv6(std::string_view uri) {
 }
 
 URI URI::fromAny(std::string_view uri) {
+   BOTAN_ARG_CHECK(!uri.empty(), "Empty URI is invalid");
+
    bool colon_seen = false;
    bool non_number = false;
    if(uri[0] == '[') {
